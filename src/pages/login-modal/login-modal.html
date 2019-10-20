@@ -1,0 +1,28 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align:center">Inicia Sesión</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <lottie-animation-view
+      style="text-align:center;"
+      [options]="lottieConfig"
+      [width]="200"
+      [height]="150"
+      (animCreated)="handleAnimation($event)">
+  </lottie-animation-view>
+  <ion-list >
+    <ion-item >
+        <ion-label color="primary">Correo</ion-label>
+        <ion-input placeholder="correo" type="email" [(ngModel)]="correo" (keydown)="onKeyDown($event)"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label color="primary">Contraseña</ion-label>
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password" (keydown)="onKeyDown($event)"></ion-input>
+    </ion-item>
+  </ion-list>
+  <br>
+    <button ion-button full round (click)="ingresar()">Ingresar</button>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align:center;">Mis Hijos/as</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="agregarHijo()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-image">
+
+  <div style="" *ngIf="mostrar_mensaje" class=" animated fadeInDown">
+    <ion-card style="border-radius:15px">
+      <ion-card-content>
+        <p>No has agregado a ningun hijo/a!, presiona el boton &nbsp; <ion-icon name="add-circle"></ion-icon></p>
+      </ion-card-content>
+    </ion-card>
+    <lottie-animation-view
+      style="text-align:center; margin-bottom: 70%"
+      [options]="lottieConfig"
+      [width]="400"
+      [height]="500"
+      (animCreated)="handleAnimation($event)">
+  </lottie-animation-view>
+    <!-- <button style="text-align:center; margin-bottom: 40%" ion-button round (click)="agregarHijo()">Ingresa un hijo/a</button> -->
+  </div> 
+
+  <ion-slides *ngIf="!mostrar_mensaje" #slides effect="slide" pager="true" parallax="true" paginationType="fraction" (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let hijo of hijos" style='background-image: url(https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/fondo1.jpg?alt=media&token=ce2c7e11-7bfa-4172-8cd7-57ae681e57ec); background-color: transparent !important; background-repeat: round;'>
+
+      <h1 class=" animated zoomIn">{{hijo.nombre}} {{hijo.apellido_paterno}} {{hijo.apellido_materno}}</h1>
+        
+      <lottie-animation-view
+          class=" animated zoomIn"
+          [options]="hijo.config"
+          [width]="300"
+          [height]="300"
+          (animCreated)="handleAnimation($event)">
+        </lottie-animation-view>
+
+        <ion-card style="border-radius:20px" class=" animated zoomIn">
+          <ion-card-content>
+              <br>
+              <h2> <b>¡Preguntale esto hoy a tu {{hijo.tipo_hijo}}!</b> </h2>
+              <br>
+              <h2> {{pregunta_random.pregunta}}</h2>
+              <br>
+              <button ion-button round (click)="respuesta(hijo.id_hijo)">Respuesta</button>
+              <br>
+              <button ion-button round (click)="verHistorial(hijo.id_hijo)">Ver Historial</button>
+          </ion-card-content>
+        </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

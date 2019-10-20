@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+          <button menuToggle ion-button icon-only>
+            <ion-icon  name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title style="text-align:center">Preguntas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list style="text-align:center">
+    <ion-item *ngFor="let pregunta of preguntas" (click)="abrirPregunta(pregunta)" class="animated fadeInDown">
+      {{pregunta.pregunta}}
+      <ion-icon name="left-arrow" end></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
