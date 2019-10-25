@@ -39,6 +39,8 @@ import { AgregarIdHijoProvider } from '../providers/agregar-id-hijo/agregar-id-h
 import { VerPreguntaPage } from '../pages/ver-pregunta/ver-pregunta';
 import { ResponderPreguntaPage } from '../pages/responder-pregunta/responder-pregunta';
 import { MiPerfilPage } from '../pages/mi-perfil/mi-perfil';
+import { RecuperarPasswordPage } from '../pages/recuperar-password/recuperar-password';
+import { Keyboard } from '@ionic-native/keyboard';
 registerLocaleData(localeEs);
 
 export const firebaseConfig = {
@@ -65,11 +67,12 @@ export const firebaseConfig = {
     HistorialPage,
     VerPreguntaPage,
     ResponderPreguntaPage,
-    MiPerfilPage
+    MiPerfilPage,
+    RecuperarPasswordPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {scrollAssist: true, autoFocusAssist: false, scrollPadding: false}),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
@@ -93,7 +96,8 @@ export const firebaseConfig = {
     HistorialPage,
     VerPreguntaPage,
     ResponderPreguntaPage,
-    MiPerfilPage
+    MiPerfilPage,
+    RecuperarPasswordPage
   ],
   providers: [
     StatusBar,
@@ -105,6 +109,7 @@ export const firebaseConfig = {
     CantidadHijosProvider,
     CantidadPreguntasProvider,
     AgregarIdHijoProvider,
+    Keyboard
   ]
 })
 export class AppModule {}

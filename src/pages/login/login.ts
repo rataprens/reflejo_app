@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginModalPage } from '../login-modal/login-modal';
 import { IniciarLoginProvider } from '../../providers/iniciar-login/iniciar-login';
 import { RegisterModalPage } from '../register-modal/register-modal';
+import { RecuperarPasswordPage } from '../recuperar-password/recuperar-password';
 
 
 @Component({
@@ -19,12 +20,13 @@ export class LoginPage {
   @ViewChild(Slides) slides: Slides;
   public lottieConfig: Object;
   private anim: any;
+  logo:string = "https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/icono.png?alt=media&token=b6fe4a5e-2e50-48f3-acc6-b6d67a5d4b11";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public renderer:Renderer, public viewCtrl:ViewController, public afAuth:AngularFireAuth,
               public modaCtrl:ModalController, public iniciarLogin:IniciarLoginProvider) {
     this.lottieConfig = {
-      path: 'https://assets3.lottiefiles.com/datafiles/XpFCWApEzLI29va/data.json',
+      path: '/assets/json/loading.json',
       renderer: 'canvas',
       autoplay: false,
       loop: true
@@ -68,6 +70,11 @@ export class LoginPage {
   registrate(){
     console.log('Registrate');
     this.modaCtrl.create(RegisterModalPage).present();
+  }
+
+  recuperarPass(){
+    this.modaCtrl.create(RecuperarPasswordPage).present();
+    console.log('Recuperar contraseña');
   }
 
 }

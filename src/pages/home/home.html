@@ -17,7 +17,7 @@
   <div style="" *ngIf="mostrar_mensaje" class=" animated fadeInDown">
     <ion-card style="border-radius:15px">
       <ion-card-content>
-        <p>No has agregado a ningun hijo/a!, presiona el boton &nbsp; <ion-icon name="add-circle"></ion-icon></p>
+        <p>No has agregado a ningún hijo/a!, presiona el botón &nbsp; <ion-icon name="add-circle"></ion-icon></p>
       </ion-card-content>
     </ion-card>
     <lottie-animation-view
@@ -33,28 +33,37 @@
   <ion-slides *ngIf="!mostrar_mensaje" #slides effect="slide" pager="true" parallax="true" paginationType="fraction" (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let hijo of hijos" style='background-image: url(https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/fondo1.jpg?alt=media&token=ce2c7e11-7bfa-4172-8cd7-57ae681e57ec); background-color: transparent !important; background-repeat: round;'>
 
-      <h1 class=" animated zoomIn">{{hijo.nombre}} {{hijo.apellido_paterno}} {{hijo.apellido_materno}}</h1>
-        
-      <lottie-animation-view
-          class=" animated zoomIn"
-          [options]="hijo.config"
-          [width]="300"
-          [height]="300"
-          (animCreated)="handleAnimation($event)">
-        </lottie-animation-view>
-
-        <ion-card style="border-radius:20px" class=" animated zoomIn">
-          <ion-card-content>
+ <!-- <h1 class=" animated zoomIn" style="margin-top:20%">{{hijo.nombre}} {{hijo.apellido_paterno}} {{hijo.apellido_materno}}</h1> -->
+      <div style="width:100vw; height:130vh; max-height: 200vh; margin-top: 40vh; margin-bottom: 10vh">
+        <br>
+        <br>  
+        <lottie-animation-view
+            class=" animated zoomIn"
+            [options]="hijo.config"
+            [width]="200"
+            [height]="200"
+            (animCreated)="handleAnimation($event)">
+          </lottie-animation-view>
+          <ion-card style="border-radius:20px;" class=" animated zoomIn">
+            <ion-card-header>
+              <p><b> {{hijo.nombre}} {{hijo.apellido_paterno}} {{hijo.apellido_materno}}</b></p>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item-divider >          
+                <h2> <b>¡Preguntale esto hoy a tu {{hijo.tipo_hijo}}!</b> </h2>
+              </ion-item-divider>
               <br>
-              <h2> <b>¡Preguntale esto hoy a tu {{hijo.tipo_hijo}}!</b> </h2>
-              <br>
-              <h2> {{pregunta_random.pregunta}}</h2>
-              <br>
-              <button ion-button round (click)="respuesta(hijo.id_hijo)">Respuesta</button>
-              <br>
-              <button ion-button round (click)="verHistorial(hijo.id_hijo)">Ver Historial</button>
-          </ion-card-content>
-        </ion-card>
+                <h2> {{pregunta_random.pregunta}}</h2>
+                <br>
+                <button ion-button round (click)="respuesta(hijo.id_hijo)">Respuesta</button> 
+                <ion-item-divider >
+                  <h2><b>Conoce el historial de tu {{hijo.tipo_hijo}}</b></h2>
+                </ion-item-divider>
+                <br>
+                <button style="margin-bottom:12px" ion-button round (click)="verHistorial(hijo.id_hijo)">Ver Historial</button>
+            </ion-card-content>
+          </ion-card>
+        </div>
     </ion-slide>
   </ion-slides>
 </ion-content>

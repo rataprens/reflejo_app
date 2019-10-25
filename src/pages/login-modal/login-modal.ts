@@ -26,10 +26,10 @@ export class LoginModalPage {
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup-login-modal', true);
 
     this.lottieConfig = {
-      path: 'https://assets4.lottiefiles.com/temp/lf20_XgycDo.json',
+      path: '/assets/json/login-modal.json',
       renderer: 'canvas',
       autoplay: true,
-      loop: false
+      loop: true
     };
   }
 

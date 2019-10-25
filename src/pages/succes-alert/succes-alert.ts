@@ -22,7 +22,7 @@ export class SuccesAlertPage {
     this.tipo = this.navParams.get('tipo');
     this.id_hijo = this.navParams.get('id_hijo');
     this.lottieConfig = {
-      path: 'https://assets5.lottiefiles.com/datafiles/jXqHQIXI6oO6V47/data.json',
+      path: '/assets/json/success.json',
       renderer: 'canvas',
       autoplay: true,
       loop: true

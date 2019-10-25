@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Keyboard } from '@ionic-native/keyboard';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -21,13 +21,14 @@ export class MyApp {
 
   rootPage: any = LoginPage;
   cantidad_hijos:number;
+  logo:string = "https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/icono.png?alt=media&token=b6fe4a5e-2e50-48f3-acc6-b6d67a5d4b11";
   cantidad_preguntas:number;
   pages: Array<{title: string, component: any, icon:string , total?:number}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, 
     public splashScreen: SplashScreen, public afBD:AngularFirestore, public afAuth:AngularFireAuth,
     public cantidadHijos:CantidadHijosProvider, public cantidadPreguntas:CantidadPreguntasProvider,
-    public afDB:AngularFirestore) {
+    public afDB:AngularFirestore, public keyboard:Keyboard) {
     this.initializeApp();
       this.cantidadHijos.changeEmitted$.subscribe(data=>{
         console.log(data)
@@ -62,6 +63,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.keyboard.setResizeMode('ionic');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

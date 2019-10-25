@@ -10,9 +10,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
 
-  <ion-list >
+    <div style="max-height: 30vh; height: 28vh;">
       <ion-item >
           <ion-label color="primary">Nombre</ion-label>
           <ion-input placeholder="nombre" [(ngModel)]="nombre_usuario" (keydown)="onKeyDown($event)"></ion-input>
@@ -29,9 +29,7 @@
           <ion-label color="primary">Contraseña</ion-label>
           <ion-input placeholder="contraseña" type="password" [(ngModel)]="password" (keydown)="onKeyDown($event)"></ion-input>
       </ion-item>
-  </ion-list>
-
-  <br>
-  <button ion-button full round (click)="registrar()">Registrar</button>
-
+      <br>
+      <button ion-button full  (click)="registrar()">Registrar</button>
+    </div>
 </ion-content>

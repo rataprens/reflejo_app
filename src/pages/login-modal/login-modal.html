@@ -5,24 +5,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="scroll-content">
+  <div style="width:15vw; height:20vh; max-width:15vw; max-height:20vh; margin-left:17vw">
     <lottie-animation-view
       style="text-align:center;"
       [options]="lottieConfig"
       [width]="200"
-      [height]="150"
+      [height]="160"
       (animCreated)="handleAnimation($event)">
   </lottie-animation-view>
-  <ion-list >
+  </div>
+  <div>
     <ion-item >
-        <ion-label color="primary">Correo</ion-label>
+        <ion-label color="primary" >Correo</ion-label>
         <ion-input placeholder="correo" type="email" [(ngModel)]="correo" (keydown)="onKeyDown($event)"></ion-input>
     </ion-item>
     <ion-item >
         <ion-label color="primary">Contraseña</ion-label>
         <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password" (keydown)="onKeyDown($event)"></ion-input>
     </ion-item>
-  </ion-list>
-  <br>
-    <button ion-button full round (click)="ingresar()">Ingresar</button>
+    <ion-item-divider >
+    </ion-item-divider>
+    <button  ion-button full  (click)="ingresar()">Ingresar</button>
+    <p (click)="recuperarPass()" [ngClass]="{'animated fadeOutDown':bounce3}" text-center style="margin-bottom: -1vh;">¿Olvidaste tu contraseña? presiona aquí</p>
+    <br>
+  </div>
 </ion-content>

@@ -48,7 +48,7 @@ export class ResponderPreguntaPage {
         text: 'Cancelar',
         role: 'cancel'
       }]
-    })
+    }).present();
   }
 
 }

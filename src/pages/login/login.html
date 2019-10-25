@@ -1,10 +1,10 @@
 
 <ion-content>
     <ion-slides pager #Slides>
-        <ion-slide style='background-image: url(https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/fondo1.jpg?alt=media&token=ce2c7e11-7bfa-4172-8cd7-57ae681e57ec); background-color: transparent !important; background-repeat: round;'>
+        <ion-slide class="bg-image">
           <ion-grid style="height: 100%">
               <ion-row style="margin-top: 0">
-                  <img class="animated zoomIn"  style="margin-left: 10%;margin-bottom: 18%;max-width: 80vw; max-height: 42vh; width:77vw ; height: 42vh" src="assets/imgs/LOGO2.png">
+                  <img class="animated zoomIn"  style="margin-left: 10%;margin-bottom: 18%;max-width: 80vw; max-height: 42vh; width:77vw ; height: 42vh" [src]="logo">
               </ion-row>
               <ion-row  justify-content-center align-items-center style="height: 100%">
                   <button class="animated zoomIn" style="max-width: 110vw; max-height: 50vh; width: 110vw; height: 8vh; font-size:3vh"  ion-button round block full large (click)="registrate()" ion-button>
@@ -14,12 +14,11 @@
                   <button class="animated zoomIn" style="max-width: 110vw; max-height: 50vh; width: 110vw; height: 8vh; font-size:3vh" ion-button round block full large (click)="login()">
                   Iniciar sesión
                   </button>
-                  <h5 (click)="recuperarPass()" [ngClass]="{'animated fadeOutDown':bounce3}" text-center style="margin-bottom: -1vh;">¿Olvidaste tu contraseña? presiona aquí</h5>
               </ion-row>
           </ion-grid>
         </ion-slide>
       
-        <ion-slide style='background-image: url(https://firebasestorage.googleapis.com/v0/b/espejo-b20ab.appspot.com/o/fondo1.jpg?alt=media&token=ce2c7e11-7bfa-4172-8cd7-57ae681e57ec); background-color: transparent !important; background-repeat: round;'>
+        <ion-slide class="bg-image">
             <lottie-animation-view
                 style="text-align:center;"
                 [options]="lottieConfig"

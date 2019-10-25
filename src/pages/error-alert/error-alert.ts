@@ -15,7 +15,7 @@ export class ErrorAlertPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public renderer:Renderer, public viewCtrl:ViewController) {
     this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'my-popup-error', true);
     this.lottieConfig = {
-      path: 'https://assets9.lottiefiles.com/temp/lf20_yYJhpG.json',
+      path: '/assets/json/error.json',
       renderer: 'canvas',
       autoplay: true,
       loop: true

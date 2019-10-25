@@ -10,30 +10,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
-
+<ion-content>
+  <div style="max-height:30vh; height:30vh; margin-top: 2vh">
     <ion-list>
       <ion-item>
         <ion-label color="primary">Nombre</ion-label>
         <ion-input placeholder="nombre" [(ngModel)]="nombre" (keydown)="onKeyDown($event)"></ion-input>
       </ion-item>
-
+  
       <ion-item>
         <ion-label color="primary"> Paterno</ion-label>
         <ion-input placeholder="apellido paterno" [(ngModel)]="apellido_paterno" (keydown)="onKeyDown($event)"></ion-input>
       </ion-item>
-
+  
       <ion-item>
           <ion-label color="primary"> Materno</ion-label>
           <ion-input placeholder="apellido materno" [(ngModel)]="apellido_materno" (keydown)="onKeyDown($event)"></ion-input>
         </ion-item>
-
+  
       <ion-item>
         <ion-label>Fecha de Nacimiento</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento"></ion-datetime>
       </ion-item>
-
+  
       <ion-item>
         <ion-label color="primary">Genero</ion-label>
         <!-- <ion-input placeholder="genero" [(ngModel)]="genero" (keydown)="onKeyDown($event)"></ion-input> -->
@@ -44,7 +43,7 @@
           </ion-select>
       </ion-item>
   </ion-list>
-
-<br>
     <button ion-button full round (click)="agregarHijo()">Agregar Hijo/a</button>
+  </div>
+
 </ion-content>
